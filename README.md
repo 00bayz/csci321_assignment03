@@ -1,5 +1,5 @@
 # csci321_assignment03
-[CSCI321 (Windows Programming) - Assignment 02](https://github.com/00bayz/csci321_assignment03)
+[CSCI321 (Windows Programming) - Assignment 03](https://github.com/00bayz/csci321_assignment03)
 
 [ Requirements ]
 
