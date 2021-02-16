@@ -3,8 +3,8 @@
 
 [ Requirements ]
 
-- [ ] Create Custom File Open Dialog
-	- [ ] File Open Dialog must open when Select File button is clicked
+- [ ] Create Custom Open File Dialog
+	- [ ] Open File Dialog must open when Select File button is clicked
 
 - [ ] Double Click Events
 	- [ ] If user double clicks on a game archive file, dialog closes and returns filename and path
@@ -17,7 +17,7 @@
 		- [ ] Preview image must be entirely inside the preview section
 	- [ ] If user single clicks on any other file types, nothing happens
 
-- [ ] File Open Dialog UI
+- [ ] Open File Dialog UI
 	- [ ] Textbox displaying current path
 		- [ ] User able to enter path and go to path with Enter key
 	- [ ] Button to move to parent directory. On click:
