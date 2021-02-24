@@ -397,11 +397,16 @@ namespace csci321_assignment02
 
         private void initButton_Click(object sender, EventArgs e)
         {
+            using (CustomOFD ofd = new CustomOFD())
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    
+                }
+            }
+
             gameBox.Controls.Clear();
             ToggleControls(true);
-            initButton.Text = "Game in progress";
-            Button current = sender as Button;
-            current.Enabled = false;
             string path = Environment.CurrentDirectory + "/" + "puzzle.txt";
             string[] lines = System.IO.File.ReadAllLines(path);
 
@@ -437,8 +442,6 @@ namespace csci321_assignment02
             }
 
             // Create gameboard (2D array of GridBox)
-            //int gridHeight = (resHeight / size);
-            //int gridWidth = (resWidth / size);
             float gridWidth = img.Width / ratio / (float)size;
             float gridHeight = img.Height / ratio / (float)size;
             float marginTop = 20;
