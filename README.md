@@ -3,29 +3,38 @@
 
 [ Requirements ]
 
-- [ ] Create Custom Open File Dialog
-	- [ ] Open File Dialog must open when Select File button is clicked
+- [x] Create Custom Open File Dialog
+	- [x] Open File Dialog must open when Select File button is clicked
 
-- [ ] Double Click Events
+- [ ] ListView Item Double Click Events
 	- [ ] If user double clicks on a game archive file, dialog closes and returns filename and path
 	- [ ] If user double clicks on folder, open folder and re-populate listview
-	- [ ] If user clicks on other files, nothing happens
+	- [x] If user double clicks on other files, nothing happens
 
-- [ ] Single Click Events
+- [ ] ListView Item Single Click Events
 	- [ ] If user single clicks on a game archive file, display preview of puzzle image set
 		- [ ] Preview must retain aspect ratio of original image
 		- [ ] Preview image must be entirely inside the preview section
-	- [ ] If user single clicks on any other file types, nothing happens
+	- [x] If user single clicks on any other file types, nothing happens
 
-- [ ] Open File Dialog UI
-	- [ ] Textbox displaying current path
-		- [ ] User able to enter path and go to path with Enter key
+- [ ] Custom Open File Dialog UI
+	- [x] Custom icons for the following extensions:
+		- [x] .mrb
+		- [x] .txt
+		- [x] .jpg
+		- [x] file folders
+		- [x] other extensions
+	- [x] Textbox displaying current path
+		- [x] User able to enter path and go to path with Enter key
+		- [x] Prevent access of invalid file path
 	- [ ] Button to move to parent directory. On click:
-		- [ ] Re-populate listview with parent folder's information
+		- [x] Re-populate listview with parent folder's information
 		- [ ] Clear picturebox
 		- [ ] Change displayed folder information
 	- [ ] Open Button. On click:
 		- [ ] If game archive file hightlighted, open game archive file
-		- [ ] IF folder highlighted, open folder and re-populate listview with folder information
+		- [ ] If folder highlighted, open folder and re-populate listview with folder information
 	- [ ] Labels
 		- [ ] If user clicks on game archive file, series of labels must list information about the game, including size of board, number of balls, and number of walls
+
+- [ ] Remove temp directory used to store unzipped files

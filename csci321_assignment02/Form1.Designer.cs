@@ -74,7 +74,7 @@ namespace csci321_assignment02
             this.initButton.Name = "initButton";
             this.initButton.Size = new System.Drawing.Size(228, 47);
             this.initButton.TabIndex = 4;
-            this.initButton.Text = "Start Game";
+            this.initButton.Text = "Load Game";
             this.initButton.UseVisualStyleBackColor = true;
             this.initButton.Click += new System.EventHandler(this.initButton_Click);
             // 
