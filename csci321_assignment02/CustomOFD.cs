@@ -54,6 +54,7 @@ namespace csci321_assignment02
             }
             else
             {
+                ofdPreview.Image = null;
                 string parentDir = System.IO.Directory.GetParent(currentPath).ToString();
                 currentPath = parentDir;
                 this.ofdFilePath.Text = parentDir;

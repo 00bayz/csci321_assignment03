@@ -27,10 +27,10 @@
 	- [x] Textbox displaying current path
 		- [x] User able to enter path and go to path with Enter key
 		- [x] Prevent access of invalid file path
-	- [ ] Button to move to parent directory. On click:
+	- [x] Button to move to parent directory. On click:
 		- [x] Re-populate listview with parent folder's information
-		- [ ] Clear picturebox
-		- [ ] Change displayed folder information
+		- [x] Clear picturebox
+		- [x] Change displayed folder information
 	- [ ] Open Button. On click:
 		- [ ] If game archive file hightlighted, open game archive file
 		- [ ] If folder highlighted, open folder and re-populate listview with folder information
