@@ -103,6 +103,7 @@ namespace csci321_assignment02
             this.ofdListView.TabIndex = 4;
             this.ofdListView.UseCompatibleStateImageBehavior = false;
             this.ofdListView.View = System.Windows.Forms.View.Details;
+            this.ofdListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ofdSingle_Click);
             // 
             // Filename
             // 

@@ -11,10 +11,10 @@
 	- [ ] If user double clicks on folder, open folder and re-populate listview
 	- [x] If user double clicks on other files, nothing happens
 
-- [ ] ListView Item Single Click Events
-	- [ ] If user single clicks on a game archive file, display preview of puzzle image set
-		- [ ] Preview must retain aspect ratio of original image
-		- [ ] Preview image must be entirely inside the preview section
+- [x] ListView Item Single Click Events
+	- [x] If user single clicks on a game archive file, display preview of puzzle image set
+		- [x] Preview must retain aspect ratio of original image
+		- [x] Preview image must be entirely inside the preview section
 	- [x] If user single clicks on any other file types, nothing happens
 
 - [ ] Custom Open File Dialog UI

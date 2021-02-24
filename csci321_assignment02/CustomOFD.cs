@@ -61,6 +61,27 @@ namespace csci321_assignment02
             }
         }
 
+        private void ofdSingle_Click(object sender, EventArgs e)
+        {
+            string selectedName = this.ofdListView.SelectedItems[0].Text;
+            string fullPath = currentPath + "\\" + selectedName;
+            string selectedType = this.ofdListView.SelectedItems[0].SubItems[2].Text;
+            ofdFilePath.Text = fullPath;
+            if (selectedType == ".mrb")
+            {
+                mrbExtract(fullPath);
+                mrbPreview();
+            }
+            else
+            {
+                if (ofdPreview.Image != null)
+                {
+                    ofdPreview.Image = null;
+                    ofdPreview.Invalidate();
+                }
+            }
+        }
+
         private void ofdLoad_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
@@ -92,8 +113,14 @@ namespace csci321_assignment02
 
         private void mrbPreview()
         {
-            Image tempImage = Image.FromFile(System.IO.Path.Combine(tempLocation, "puzzle.jpg"));
-            ofdPreview.Image = tempImage;
+            using (Image tempImage = Image.FromFile(System.IO.Path.Combine(tempLocation, "puzzle.jpg")))
+            {
+                Bitmap bm = new Bitmap(ofdPreview.Width, ofdPreview.Height);
+                Rectangle r = new Rectangle(0, 0, ofdPreview.Width, ofdPreview.Height);
+                Graphics g = Graphics.FromImage(bm);
+                g.DrawImage(tempImage, r, 0, 0, tempImage.Width, tempImage.Height, GraphicsUnit.Pixel);
+                ofdPreview.Image = bm;
+            }
         }
 
         private void populateListView(string dir)
