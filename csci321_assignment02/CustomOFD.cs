@@ -108,7 +108,14 @@ namespace csci321_assignment02
             string selectedName = this.ofdListView.SelectedItems[0].Text;
             string fullPath = currentPath + "\\" + selectedName;
             string selectedType = this.ofdListView.SelectedItems[0].SubItems[2].Text;
-            if (selectedType == "File Folder")
+            if (selectedType == ".mrb")
+            {
+                this.DialogResult = DialogResult.OK;
+                mrbExtract(fullPath);
+                setGamePath();
+                this.Close();
+            }
+            else if (selectedType == "File Folder")
             {
                 try
                 {
@@ -120,12 +127,6 @@ namespace csci321_assignment02
                     populateListView(currentPath);
                     MessageBox.Show("Unauthorized access");
                 }
-            }
-            else if (selectedType == ".mrb")
-            {
-                mrbExtract(this.ofdFilePath.Text);
-                setGamePath();
-                this.Close();
             }
             ofdFilePath.Text = fullPath;
         }
