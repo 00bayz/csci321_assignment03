@@ -58,7 +58,7 @@ namespace csci321_assignment02
                     populateListView(currentPath);
                     MessageBox.Show("Invalid Path");
                 }
-                catch (UnauthorizedAccessException)
+                catch (System.Security.SecurityException)
                 {
                     ofdFilePath.Text = currentPath;
                     populateListView(currentPath);
@@ -114,7 +114,7 @@ namespace csci321_assignment02
                 {
                     goToFolder(fullPath);
                 }
-                catch (UnauthorizedAccessException)
+                catch (System.Security.SecurityException)
                 {
                     ofdFilePath.Text = currentPath;
                     populateListView(currentPath);
@@ -143,7 +143,7 @@ namespace csci321_assignment02
                     {
                         goToFolder(fullPath);
                     }
-                    catch (UnauthorizedAccessException)
+                    catch (System.Security.SecurityException)
                     {
                         ofdFilePath.Text = currentPath;
                         populateListView(currentPath);
