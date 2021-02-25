@@ -18,7 +18,7 @@ namespace csci321_assignment02
         }
 
         // Variables
-        Image img = Image.FromFile("puzzle.jpg");
+        Image img;
         int resWidth = 360;
         int resHeight = 360;
         int emptyXY = 0;
@@ -397,17 +397,22 @@ namespace csci321_assignment02
 
         private void initButton_Click(object sender, EventArgs e)
         {
+            string gameDir = string.Empty;
+            
             using (CustomOFD ofd = new CustomOFD())
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    
+                    gameDir = ofd.GamePath;
                 }
             }
 
+            string imgPath = gameDir + "/" + "puzzle.jpg";
+            string gamePath = gameDir + "/" + "puzzle.txt";
             gameBox.Controls.Clear();
             ToggleControls(true);
-            string path = Environment.CurrentDirectory + "/" + "puzzle.txt";
+            img = Image.FromFile(imgPath);
+            string path = gamePath;
             string[] lines = System.IO.File.ReadAllLines(path);
 
             // Counts of components

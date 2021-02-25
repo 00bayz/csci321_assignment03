@@ -6,8 +6,8 @@
 - [x] Create Custom Open File Dialog
 	- [x] Open File Dialog must open when Select File button is clicked
 
-- [ ] ListView Item Double Click Events
-	- [ ] If user double clicks on a game archive file, dialog closes and returns filename and path
+- [x] ListView Item Double Click Events
+	- [x] If user double clicks on a game archive file, dialog closes and returns filename and path
 	- [x] If user double clicks on folder, open folder and re-populate listview
 	- [x] If user double clicks on other files, nothing happens
 
@@ -31,10 +31,12 @@
 		- [x] Re-populate listview with parent folder's information
 		- [x] Clear picturebox
 		- [x] Change displayed folder information
-	- [ ] Open Button. On click:
-		- [ ] If game archive file hightlighted, open game archive file
+	- [x] Open Button. On click:
+		- [x] If game archive file hightlighted, open game archive file
 		- [x] If folder highlighted, open folder and re-populate listview with folder information
 	- [ ] Labels
 		- [ ] If user clicks on game archive file, series of labels must list information about the game, including size of board, number of balls, and number of walls
 
 - [x] Remove temp directory used to store unzipped files
+
+- [ ] Prevent crash if attempting to access folders/files with insufficient permission

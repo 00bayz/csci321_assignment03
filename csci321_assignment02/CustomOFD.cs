@@ -20,6 +20,18 @@ namespace csci321_assignment02
 
         private string currentPath = string.Empty;
         private string tempLocation = string.Empty;
+        private string gamePath;
+        public string GamePath
+        {
+            set
+            {
+                gamePath = value;
+            }
+            get
+            {
+                return gamePath;
+            }
+        }
 
         private void CustomOFD_Load(object sender, EventArgs e)
         {
@@ -94,7 +106,9 @@ namespace csci321_assignment02
             }
             else if (selectedType == ".mrb")
             {
-
+                mrbExtract(this.ofdFilePath.Text);
+                setGamePath();
+                this.Close();
             }
             
         }
@@ -113,6 +127,7 @@ namespace csci321_assignment02
             {
                 this.DialogResult = DialogResult.OK;
                 mrbExtract(this.ofdFilePath.Text);
+                setGamePath();
                 this.Close();
             }
         }
@@ -128,11 +143,9 @@ namespace csci321_assignment02
             {
                 removeTempDirectory();
             }
-            // temp test variable
-            string mrbTest = @"C:\Users\bayz\source\school\csci321\csci321_assignment03\csci321_assignment02\bin\Debug\base.mrb";
             tempLocation = System.IO.Path.Combine(System.IO.Path.GetTempPath(), System.IO.Path.GetRandomFileName());
             System.IO.Directory.CreateDirectory(tempLocation);
-            System.IO.Compression.ZipArchive mrb = System.IO.Compression.ZipFile.OpenRead(mrbTest);
+            System.IO.Compression.ZipArchive mrb = System.IO.Compression.ZipFile.OpenRead(mrbPath);
             foreach(System.IO.Compression.ZipArchiveEntry entry in mrb.Entries)
             {
                 entry.ExtractToFile(System.IO.Path.Combine(tempLocation, entry.FullName), true);
@@ -236,6 +249,11 @@ namespace csci321_assignment02
                 res = (bytes / 1000000).ToString() + " MB";
             }
             return res;
+        }
+
+        private void setGamePath()
+        {
+            gamePath = tempLocation;
         }
     }
 }
