@@ -17,7 +17,7 @@
 		- [x] Preview image must be entirely inside the preview section
 	- [x] If user single clicks on any other file types, nothing happens
 
-- [ ] Custom Open File Dialog UI
+- [x] Custom Open File Dialog UI
 	- [x] Custom icons for the following extensions:
 		- [x] .mrb
 		- [x] .txt
@@ -34,8 +34,8 @@
 	- [x] Open Button. On click:
 		- [x] If game archive file hightlighted, open game archive file
 		- [x] If folder highlighted, open folder and re-populate listview with folder information
-	- [ ] Labels
-		- [ ] If user clicks on game archive file, series of labels must list information about the game, including size of board, number of balls, and number of walls
+	- [x] Labels
+		- [x] If user clicks on game archive file, series of labels must list information about the game, including size of board, number of balls, and number of walls
 
 - [x] Remove temp directory used to store unzipped files
 

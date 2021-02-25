@@ -35,6 +35,9 @@ namespace csci321_assignment02
 
         private void CustomOFD_Load(object sender, EventArgs e)
         {
+            this.sizeLabel.Text = "";
+            this.ballsLabel.Text = "";
+            this.wallsLabel.Text = "";
             currentPath = Environment.CurrentDirectory;
             this.ofdFilePath.Text = currentPath;
             populateListView(currentPath);
@@ -82,15 +85,16 @@ namespace csci321_assignment02
             {
                 mrbExtract(fullPath);
                 mrbPreview();
+                mrbLabels();
             }
             else
             {
                 if (ofdPreview.Image != null)
                 {
-                    ofdPreview.Image = null;
-                    ofdPreview.Invalidate();
+                    removePreview();
                 }
             }
+            
         }
 
         private void ofdDouble_Click(object sender, MouseEventArgs e)
@@ -115,20 +119,23 @@ namespace csci321_assignment02
 
         private void ofdLoad_Click(object sender, EventArgs e)
         {
-            string selectedName = this.ofdListView.SelectedItems[0].Text;
-            string fullPath = currentPath + "\\" + selectedName;
-            string selectedType = this.ofdListView.SelectedItems[0].SubItems[2].Text;
-            ofdFilePath.Text = fullPath;
-            if (selectedType == "File Folder")
+            if (this.ofdListView.SelectedItems.Count > 0)
             {
-                goToFolder(fullPath);
-            }
-            else if (selectedType == ".mrb")
-            {
-                this.DialogResult = DialogResult.OK;
-                mrbExtract(this.ofdFilePath.Text);
-                setGamePath();
-                this.Close();
+                string selectedName = this.ofdListView.SelectedItems[0].Text;
+                string fullPath = currentPath + "\\" + selectedName;
+                string selectedType = this.ofdListView.SelectedItems[0].SubItems[2].Text;
+                ofdFilePath.Text = fullPath;
+                if (selectedType == "File Folder")
+                {
+                    goToFolder(fullPath);
+                }
+                else if (selectedType == ".mrb")
+                {
+                    this.DialogResult = DialogResult.OK;
+                    mrbExtract(this.ofdFilePath.Text);
+                    setGamePath();
+                    this.Close();
+                }
             }
         }
 
@@ -150,6 +157,19 @@ namespace csci321_assignment02
             {
                 entry.ExtractToFile(System.IO.Path.Combine(tempLocation, entry.FullName), true);
             }
+        }
+
+        private void mrbLabels()
+        {
+            string txtPath = System.IO.Path.Combine(tempLocation, "puzzle.txt");
+            string[] lines = System.IO.File.ReadAllLines(txtPath);
+            string[] counts = lines[0].Split(' ');
+            int size = Convert.ToInt32(counts[0]);
+            int balls = Convert.ToInt32(counts[1]);
+            int walls = Convert.ToInt32(counts[2]);
+            this.sizeLabel.Text = "Board Size: " + size + " x " + size;
+            this.ballsLabel.Text = "Balls: " + balls;
+            this.wallsLabel.Text = "Walls: " + walls;
         }
 
         private void mrbPreview()
@@ -235,6 +255,15 @@ namespace csci321_assignment02
                 System.IO.File.Delete(file.FullName);
             }
             System.IO.Directory.Delete(tempLocation);
+        }
+
+        private void removePreview()
+        {
+            ofdPreview.Image = null;
+            ofdPreview.Invalidate();
+            this.sizeLabel.Text = "";
+            this.ballsLabel.Text = "";
+            this.wallsLabel.Text = "";
         }
 
         private string convertFileSize(int bytes)

@@ -42,6 +42,9 @@ namespace csci321_assignment02
             this.Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.icons = new System.Windows.Forms.ImageList(this.components);
             this.ofdPreview = new System.Windows.Forms.PictureBox();
+            this.sizeLabel = new System.Windows.Forms.Label();
+            this.ballsLabel = new System.Windows.Forms.Label();
+            this.wallsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ofdPreview)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,12 +147,42 @@ namespace csci321_assignment02
             this.ofdPreview.TabIndex = 5;
             this.ofdPreview.TabStop = false;
             // 
+            // sizeLabel
+            // 
+            this.sizeLabel.AutoSize = true;
+            this.sizeLabel.Location = new System.Drawing.Point(1070, 300);
+            this.sizeLabel.Name = "sizeLabel";
+            this.sizeLabel.Size = new System.Drawing.Size(68, 18);
+            this.sizeLabel.TabIndex = 6;
+            this.sizeLabel.Text = "label1";
+            // 
+            // ballsLabel
+            // 
+            this.ballsLabel.AutoSize = true;
+            this.ballsLabel.Location = new System.Drawing.Point(1070, 350);
+            this.ballsLabel.Name = "ballsLabel";
+            this.ballsLabel.Size = new System.Drawing.Size(68, 18);
+            this.ballsLabel.TabIndex = 7;
+            this.ballsLabel.Text = "label1";
+            // 
+            // wallsLabel
+            // 
+            this.wallsLabel.AutoSize = true;
+            this.wallsLabel.Location = new System.Drawing.Point(1070, 400);
+            this.wallsLabel.Name = "wallsLabel";
+            this.wallsLabel.Size = new System.Drawing.Size(68, 18);
+            this.wallsLabel.TabIndex = 8;
+            this.wallsLabel.Text = "label1";
+            // 
             // CustomOFD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1333, 623);
+            this.Controls.Add(this.wallsLabel);
+            this.Controls.Add(this.ballsLabel);
+            this.Controls.Add(this.sizeLabel);
             this.Controls.Add(this.ofdPreview);
             this.Controls.Add(this.ofdListView);
             this.Controls.Add(this.ofdPrevDir);
@@ -180,5 +213,8 @@ namespace csci321_assignment02
         private System.Windows.Forms.ColumnHeader Size;
         private System.Windows.Forms.ImageList icons;
         private System.Windows.Forms.PictureBox ofdPreview;
+        private System.Windows.Forms.Label sizeLabel;
+        private System.Windows.Forms.Label ballsLabel;
+        private System.Windows.Forms.Label wallsLabel;
     }
 }
