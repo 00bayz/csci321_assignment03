@@ -58,7 +58,7 @@ namespace csci321_assignment02
                     populateListView(currentPath);
                     MessageBox.Show("Invalid Path");
                 }
-                catch (System.Security.SecurityException)
+                catch (System.UnauthorizedAccessException)
                 {
                     ofdFilePath.Text = currentPath;
                     populateListView(currentPath);
@@ -121,7 +121,7 @@ namespace csci321_assignment02
                 {
                     goToFolder(fullPath);
                 }
-                catch (System.Security.SecurityException)
+                catch (System.UnauthorizedAccessException)
                 {
                     ofdFilePath.Text = currentPath;
                     populateListView(currentPath);
@@ -144,7 +144,7 @@ namespace csci321_assignment02
                     {
                         goToFolder(fullPath);
                     }
-                    catch (System.Security.SecurityException)
+                    catch (System.UnauthorizedAccessException)
                     {
                         ofdFilePath.Text = currentPath;
                         populateListView(currentPath);
@@ -234,9 +234,23 @@ namespace csci321_assignment02
 
         private void populateListView(string dir)
         {
+            string[] files;
+            string[] dirs;
+            try
+            {
+                files = System.IO.Directory.GetFiles(dir);
+                dirs = System.IO.Directory.GetDirectories(dir);
+            }
+            catch (System.UnauthorizedAccessException)
+            {
+                ofdFilePath.Text = System.IO.Directory.GetParent(currentPath).ToString();
+                currentPath = System.IO.Directory.GetParent(currentPath).ToString();
+                MessageBox.Show("Unauthorized Access");
+                return;
+            }
             ofdListView.Items.Clear();
-            string[] files = System.IO.Directory.GetFiles(dir);
-            string[] dirs = System.IO.Directory.GetDirectories(dir);
+            files = System.IO.Directory.GetFiles(dir);
+            dirs = System.IO.Directory.GetDirectories(dir);
             for (int i = 0; i < dirs.Length; i++)
             {
                 System.IO.DirectoryInfo info = new System.IO.DirectoryInfo(dirs[i]);
@@ -285,6 +299,7 @@ namespace csci321_assignment02
                 item.ImageIndex = iconIndex;
                 ofdListView.Items.Add(item);
             }
+
         }
 
         private void goToFolder(string dir)
