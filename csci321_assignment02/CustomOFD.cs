@@ -196,10 +196,35 @@ namespace csci321_assignment02
 
         private void mrbPreview()
         {
+            float ratio = 0;
             using (Image tempImage = Image.FromFile(System.IO.Path.Combine(tempLocation, "puzzle.jpg")))
             {
+                if (tempImage.Width > tempImage.Height) // wide
+                {
+                    if (tempImage.Width > 240) // shrink image
+                    {
+                        ratio = (float)tempImage.Width / 240;
+                    }
+                    else // expand image
+                    {
+                        ratio = 240 / (float)tempImage.Width;
+                    }
+                }
+                else // tall
+                {
+                    if (tempImage.Height > 240) // shrink image
+                    {
+                        ratio = (float)tempImage.Height / 240;
+                    }
+                    else // expand image
+                    {
+                        ratio = 240 / (float)tempImage.Height;
+                    }
+                }
+                float adjWidth = tempImage.Width / ratio;
+                float adjHeight = tempImage.Height / ratio;
                 Bitmap bm = new Bitmap(ofdPreview.Width, ofdPreview.Height);
-                Rectangle r = new Rectangle(0, 0, ofdPreview.Width, ofdPreview.Height);
+                Rectangle r = new Rectangle(0, 0, (int)adjWidth, (int)adjHeight);
                 Graphics g = Graphics.FromImage(bm);
                 g.DrawImage(tempImage, r, 0, 0, tempImage.Width, tempImage.Height, GraphicsUnit.Pixel);
                 ofdPreview.Image = bm;
