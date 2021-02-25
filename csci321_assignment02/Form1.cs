@@ -405,6 +405,10 @@ namespace csci321_assignment02
                 {
                     gameDir = ofd.GamePath;
                 }
+                else
+                {
+                    return;
+                }
             }
 
             string imgPath = gameDir + "/" + "puzzle.jpg";
