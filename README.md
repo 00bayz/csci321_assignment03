@@ -39,4 +39,4 @@
 
 - [x] Remove temp directory used to store unzipped files
 
-- [ ] Prevent crash if attempting to access folders/files with insufficient permission
+- [x] Prevent crash if attempting to access folders/files with insufficient permission
