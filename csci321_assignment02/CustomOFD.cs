@@ -56,9 +56,7 @@ namespace csci321_assignment02
             {
                 ofdPreview.Image = null;
                 string parentDir = System.IO.Directory.GetParent(currentPath).ToString();
-                currentPath = parentDir;
-                this.ofdFilePath.Text = parentDir;
-                populateListView(parentDir);
+                goToFolder(parentDir);
             }
         }
 
@@ -83,11 +81,40 @@ namespace csci321_assignment02
             }
         }
 
+        private void ofdDouble_Click(object sender, MouseEventArgs e)
+        {
+            string selectedName = this.ofdListView.SelectedItems[0].Text;
+            string fullPath = currentPath + "\\" + selectedName;
+            string selectedType = this.ofdListView.SelectedItems[0].SubItems[2].Text;
+            ofdFilePath.Text = fullPath;
+            if (selectedType == "File Folder")
+            {
+                goToFolder(fullPath);
+                
+            }
+            else if (selectedType == ".mrb")
+            {
+
+            }
+            
+        }
+
         private void ofdLoad_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            mrbExtract(this.ofdFilePath.Text);
-            this.Close();
+            string selectedName = this.ofdListView.SelectedItems[0].Text;
+            string fullPath = currentPath + "\\" + selectedName;
+            string selectedType = this.ofdListView.SelectedItems[0].SubItems[2].Text;
+            ofdFilePath.Text = fullPath;
+            if (selectedType == "File Folder")
+            {
+                goToFolder(fullPath);
+            }
+            else if (selectedType == ".mrb")
+            {
+                this.DialogResult = DialogResult.OK;
+                mrbExtract(this.ofdFilePath.Text);
+                this.Close();
+            }
         }
 
         private void ofdCancel_Click(object sender, EventArgs e)
@@ -177,6 +204,13 @@ namespace csci321_assignment02
                 item.ImageIndex = iconIndex;
                 ofdListView.Items.Add(item);
             }
+        }
+
+        private void goToFolder(string dir)
+        {
+            currentPath = dir;
+            ofdFilePath.Text = dir;
+            populateListView(dir);
         }
 
         private void removeTempDirectory()

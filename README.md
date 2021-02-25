@@ -8,7 +8,7 @@
 
 - [ ] ListView Item Double Click Events
 	- [ ] If user double clicks on a game archive file, dialog closes and returns filename and path
-	- [ ] If user double clicks on folder, open folder and re-populate listview
+	- [x] If user double clicks on folder, open folder and re-populate listview
 	- [x] If user double clicks on other files, nothing happens
 
 - [x] ListView Item Single Click Events
@@ -33,8 +33,8 @@
 		- [x] Change displayed folder information
 	- [ ] Open Button. On click:
 		- [ ] If game archive file hightlighted, open game archive file
-		- [ ] If folder highlighted, open folder and re-populate listview with folder information
+		- [x] If folder highlighted, open folder and re-populate listview with folder information
 	- [ ] Labels
 		- [ ] If user clicks on game archive file, series of labels must list information about the game, including size of board, number of balls, and number of walls
 
-- [ ] Remove temp directory used to store unzipped files
+- [x] Remove temp directory used to store unzipped files
